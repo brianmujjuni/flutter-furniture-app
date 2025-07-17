@@ -31,7 +31,10 @@ class Body extends StatelessWidget {
                   ),
                 ),
               ),
-              ProductCard()
+              ListView.builder(
+                itemCount: 5,
+                itemBuilder: (context, index) => ProductCard(),
+              )
             ],
           ),
         )
