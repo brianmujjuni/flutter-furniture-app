@@ -40,6 +40,7 @@ class Body extends StatelessWidget {
                   itemBuilder: (context, index) => ProductCard(
                     itemIndex: index,
                     product: products[index],
+                    press: (){},
                   ),
                 )
               ],
