@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:furniture_app/constants.dart';
 import 'package:furniture_app/models/products.dart';
 import 'package:furniture_app/screens/details/components/list_of_colors.dart';
@@ -6,7 +7,7 @@ import 'package:furniture_app/screens/details/components/product_image.dart';
 
 class Body extends StatelessWidget {
   final Product product;
-  const Body({super.key,required this.product});
+  const Body({super.key, required this.product});
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +32,7 @@ class Body extends StatelessWidget {
               Center(
                 child: ProductPoster(
                   size: size,
-                  image: "assets/images/Item_2.png",
+                  image: product.image,
                 ),
               ),
               ListOfColors(),
@@ -39,12 +40,12 @@ class Body extends StatelessWidget {
                 padding:
                     const EdgeInsets.symmetric(vertical: kDefaultPadding / 2),
                 child: Text(
-                  "Poppy Platic Tub Chair",
+                  product.title,
                   style: Theme.of(context).textTheme.headlineSmall,
                 ),
               ),
               Text(
-                '\$56',
+                '\$${product.price}',
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.w600,
@@ -56,15 +57,19 @@ class Body extends StatelessWidget {
                   vertical: kDefaultPadding / 2,
                 ),
                 child: Text(
-                  "",
+                  product.description,
                   style: TextStyle(color: kTextLightColor),
                 ),
               ),
-              SizedBox(height: kDefaultPadding,)
+              SizedBox(
+                height: kDefaultPadding,
+              )
             ],
           ),
         ),
+        ChatAndAddToCart()
       ],
     );
   }
 }
+
